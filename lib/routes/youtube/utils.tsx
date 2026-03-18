@@ -68,16 +68,14 @@ export const renderDescription = (embed, videoId, img, description) =>
     renderToString(
         <>
             {embed ? (
-                <iframe
-                    id="ytplayer"
-                    type="text/html"
-                    width="640"
-                    height="360"
-                    src={(config.youtube?.videoEmbedUrl || 'https://www.youtube-nocookie.com/embed/') + videoId}
-                    frameborder="0"
-                    allowfullscreen
-                    referrerpolicy="strict-origin-when-cross-origin"
-                />
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                    <iframe
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                        src={`https://www.youtube.com/embed/${videoId}`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    />
+                </div>
             ) : (
                 <img src={img?.url ?? ''} />
             )}
