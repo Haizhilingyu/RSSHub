@@ -18,8 +18,26 @@ const Description = ({ embed, ugc, ogv, aid, cid, bvid, seasonId, episodeId, img
     <>
         {embed ? (
             <>
-                {ugc ? <iframe width="640" height="360" src={`https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=${aid}&cid=${cid}&bvid=${bvid}`} frameborder="0" allowfullscreen></iframe> : null}
-                {ogv ? <iframe width="640" height="360" src={`https://www.bilibili.com/blackboard/html5mobileplayer.html?seasonId=${seasonId}&episodeId=${episodeId}`} frameborder="0" allowfullscreen></iframe> : null}
+                {ugc ? (
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                        <iframe
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            src={`https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=${aid}&cid=${cid}&bvid=${bvid}`}
+                            frameborder="0"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                ) : null}
+                {ogv ? (
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                        <iframe
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            src={`https://www.bilibili.com/blackboard/html5mobileplayer.html?seasonId=${seasonId}&episodeId=${episodeId}`}
+                            frameborder="0"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                ) : null}
                 <br />
             </>
         ) : null}
